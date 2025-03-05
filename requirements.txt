@@ -9,4 +9,4 @@ pandas
 scikit-learn
 tensorflow
 nltk
-gunicorns
+gunicorn

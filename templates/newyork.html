@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover the magic of New York with our immersive travel experience. Plan your perfect trip to the Big Apple with expert recommendations, interactive maps, and real-time information.">
+    <title>New York Explorer | Your Ultimate Guide to the Big Apple</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="static/css/newyork.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="https://i.postimg.cc/L4LfTbKB/new-york.jpg" alt="Rome Explorer Logo" class="me-2 rounded-circle" width="40" height="40">
+                <span class="fw-bold text-primary">New York</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#destinations">
+                            <i class="fas fa-map-marker-alt me-1"></i> Destinations
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#activities">
+                            <i class="fas fa-hiking me-1"></i> Activities
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#map-section">
+                            <i class="fas fa-map me-1"></i> Explore
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">
+                            <i class="fas fa-envelope me-1"></i> Contact
+                        </a>
+                    </li>
+                </ul>
+                <form class="d-flex ms-3">
+                    <div class="input-group">
+                        <input class="form-control" type="search" placeholder="Search New York..." aria-label="Search">
+                        <button class="btn btn-outline-primary" type="submit"><i class="fas fa-search"></i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="video-container">
+          <video autoplay loop muted>
+            <source src="static/videos/newyork.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="overlay"></div>
+        <div class="hero-content">
+          <h1 class="hero-title" data-aos="fade-up">Unveil the Urban Tapestry</h1>
+          <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">Navigate the concrete jungle's hidden gems</p>
+          <a href="#explore" class="btn btn-custom btn-lg" data-aos="fade-up" data-aos-delay="400">Start Exploring</a>
+        </div>
+    </section>
+
+    <main>
+        <section id="destinations" class="py-5">
+            <div class="container">
+                <h2 class="text-center section-title" data-aos="fade-up">Iconic Landmarks</h2>
+                <div class="row">
+                    <div class="col-lg-8" data-aos="fade-right">
+                        <div id="landmarkCarousel" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#landmarkCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Statue of Liberty"></button>
+                                <button type="button" data-bs-target="#landmarkCarousel" data-bs-slide-to="1" aria-label="Empire State Building"></button>
+                                <button type="button" data-bs-target="#landmarkCarousel" data-bs-slide-to="2" aria-label="Central Park"></button>
+                            </div>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="https://i.postimg.cc/0jDpKtxn/Statue-of-Liberty.jpgs" class="d-block w-100" alt="Statue of Liberty">
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h5>Statue of Liberty</h5>
+                                        <p>Symbol of freedom and democracy</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://i.postimg.cc/MZC5ZBxt/Empire-State-Building.jpg" class="d-block w-100" alt="Empire State Building">
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h5>Empire State Building</h5>
+                                        <p>Iconic skyscraper with panoramic views</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://i.postimg.cc/65mrPNPg/Central-Park.jpg" class="d-block w-100" alt="Central Park">
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h5>Central Park</h5>
+                                        <p>Urban oasis in the heart of Manhattan</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#landmarkCarousel" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#landmarkCarousel" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-lg-4" data-aos="fade-left">
+                        <div class="landmark-info card">
+                            <div class="card-body">
+                                <h3 id="landmarkTitle" class="card-title">Statue of Liberty</h3>
+                                <p id="landmarkDescription" class="card-text">The Statue of Liberty, a colossal neoclassical sculpture on Liberty Island in New York Harbor, was a gift from the people of France to the United States. Dedicated on October 28, 1886, it has become an icon of freedom and of the United States.</p>
+                                <ul id="landmarkFacts" class="list-group list-group-flush">
+                                    <li class="list-group-item"><i class="fas fa-info-circle me-2"></i>Height: 151 feet (46 meters)</li>
+                                    <li class="list-group-item"><i class="fas fa-calendar-alt me-2"></i>Dedicated: October 28, 1886</li>
+                                    <li class="list-group-item"><i class="fas fa-users me-2"></i>Annual Visitors: 4.5 million</li>
+                                </ul>
+                                <button class="btn btn-custom mt-3" onclick="bookTour()">Book a Tour</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="activities" class="py-5 bg-light">
+            <div class="container">
+                <h2 class="text-center section-title" data-aos="fade-up">Popular Activities</h2>
+                <div class="activity-grid">
+                    <div class="activity-card" data-aos="fade-up">
+                        <i class="fas fa-utensils activity-icon"></i>
+                        <h5>Food Tours</h5>
+                        <p>Taste the diverse flavors of NYC</p>
+                        <button class="btn btn-custom">Book Now</button>
+                    </div>
+                    <div class="activity-card" data-aos="fade-up" data-aos-delay="200">
+                        <i class="fas fa-ticket-alt activity-icon"></i>
+                        <h5>Broadway Shows</h5>
+                        <p>Experience world-class theater</p>
+                        <button class="btn btn-custom">Book Now</button>
+                    </div>
+                    <div class="activity-card" data-aos="fade-up" data-aos-delay="400">
+                        <i class="fas fa-bicycle activity-icon"></i>
+                        <h5>City Bike Tours</h5>
+                        <p>Explore NYC on two wheels</p>
+                        <button class="btn btn-custom">Book Now</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="map-section" class="py-5">
+            <div class="container">
+                <h2 class="text-center section-title" data-aos="fade-up">Explore New York</h2>
+                <div class="row">
+                    <div class="col-lg-8" data-aos="fade-right">
+                        <div id="map"></div>
+                    </div>
+                    <div class="col-lg-4" data-aos="fade-left">
+                        <div class="landmark-info card">
+                            <div class="card-body">
+                                <h5 class="card-title">Popular Destinations</h5>
+                                <ul id="landmarkList" class="list-group list-group-flush">
+                                    <!-- Landmarks will be dynamically added here -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="weather" class="py-5 bg-light">
+            <div class="container">
+                <h2 class="text-center section-title" data-aos="fade-up">New York Weather</h2>
+                <div id="weather-widget" class="text-center" data-aos="fade-up">
+                    <!-- Weather information will be dynamically added here -->
+                </div>
+            </div>
+        </section>
+
+        <section id="statistics" class="py-5">
+            <div class="container">
+                <h2 class="text-center section-title" data-aos="fade-up">Visitor Statistics</h2>
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <canvas id="visitorStats" data-aos="fade-up"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-5 bg-light">
+            <div class="container">
+                <h2 class="text-center section-title" data-aos="fade-up">Contact Us</h2>
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <form data-aos="fade-up">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Name</label>
+                                <input type="text" class="form-control" id="name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Message</label>
+                                <textarea class="form-control" id="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-custom">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-dark text-light py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5 class="mb-3">About New York Explorer</h5>
+                    <p>We're passionate about helping you discover the magic of New York City. Our expert guides and curated experiences ensure an unforgettable journey through the Big Apple.</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="mb-3">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-light text-decoration-none">Home</a></li>
+                        <li><a href="#destinations" class="text-light text-decoration-none">Destinations</a></li>
+                        <li><a href="#activities" class="text-light text-decoration-none">Activities</a></li>
+                        <li><a href="#map-section" class="text-light text-decoration-none">Explore</a></li>
+                        <li><a href="#contact" class="text-light text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="mb-3">Stay Connected</h5>
+                    <p>Subscribe to our newsletter for the latest updates and exclusive offers.</p>
+                    <form>
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="Your email" aria-label="Your email" aria-describedby="button-addon2">
+                            <button class="btn btn-custom" type="button" id="button-addon2">Subscribe</button>
+                        </div>
+                    </form>
+                    <div class="social-icons mt-3">
+                        <a href="#" class="text-light me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-light"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p>&copy; 2024 New York Explorer. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <a href="#" class="text-light text-decoration-none me-3">Privacy Policy</a>
+                    <a href="#" class="text-light text-decoration-none me-3">Terms of Service</a>
+                    <a href="#" class="text-light text-decoration-none">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <div class="modal fade landmark-modal" id="landmarkModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalLandmarkTitle"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img id="modalLandmarkImage" src="" class="img-fluid rounded mb-4" alt="">
+                    <h4 id="modalLandmarkSubtitle" class="mb-3"></h4>
+                    <p id="modalLandmarkDescription"></p>
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <h5 class="mb-3">Quick Facts</h5>
+                            <ul id="modalLandmarkFacts" class="list-unstyled">
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h5 class="mb-3">Visitor Information</h5>
+                            <ul id="modalLandmarkVisitorInfo" class="list-unstyled">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-custom">Book Tickets</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+    <script src="static/js/newyork.js"></script>
+    </body>
+    </html>
+    

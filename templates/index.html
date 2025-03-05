@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro Travel Planner - Your Ultimate Travel Companion</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.2.0/font/bootstrap-icons.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+    
+    <link rel="stylesheet" href="static/css/index.css">
+</head>
+
+<body>
+    <!-- Loading Spinner -->
+    <div id="loading-spinner" class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/"><i class="fas fa-plane-departure"></i> Pro Travel Planner</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/"><i class="fas fa-home"></i> Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#destinations"><i class="fas fa-map-marked-alt"></i> Destinations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/profile"><i class="fas fa-suitcase-rolling"></i> Plan Trip</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about"><i class="fas fa-info-circle"></i> About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Welcome Banner -->
+    <section id="home" class="welcome-banner" style="background-image: url('static/images/banner-image.jpg');">
+        <div class="banner-content">
+            <h1 class="display-4 animate__animated animate__fadeInDown">Discover Your Next Adventure</h1>
+            <p class="lead animate__animated animate__fadeInUp">Personalized travel experiences tailored just for you.</p>
+            <div class="animate__animated animate__fadeInUp">
+                <button class="btn btn-primary btn-lg me-2" onclick="scrollToSection('trip-planner')">Plan Your Trip</button>
+                <button class="btn btn-success btn-lg" onclick="scrollToSection('destinations')">Explore Destinations</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Bar with Recommendations -->
+<section class="container my-5">
+    <div class="search-bar bg-light p-4 rounded shadow-sm">
+        <form id="search-form">
+            <div class="row g-3">
+                <div class="col-md-3">
+                    <label for="destination" class="form-label">Where to?</label>
+                    <input type="text" class="form-control" id="destination" placeholder="Enter destination" autocomplete="off">
+                    <div id="destination-recommendations" class="list-group mt-2"></div>
+                </div>
+                <div class="col-md-3">
+                    <label for="dates" class="form-label">Travel Dates</label>
+                    <input type="text" class="form-control" id="dates" placeholder="Select dates">
+                </div>
+                <div class="col-md-3">
+                    <label for="travelers" class="form-label">Travelers</label>
+                    <select class="form-select" id="travelers">
+                        <option value="">Select</option>
+                        <option value="1">1 Adult</option>
+                        <option value="2">2 Adults</option>
+                        <option value="family">Family</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">&nbsp;</label>
+                    <button type="submit" class="btn btn-primary w-100">Search</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+
+<!-- Recommendations -->
+<section id="destinations" class="recommendations py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-5 display-4 fw-bold">Trending Destinations</h2>
+        <div id="destinationCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="row row-cols-1 row-cols-md-3 g-4" id="recommendations-container-1">
+                        <!-- First set of recommendations will be dynamically added here -->
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="row row-cols-1 row-cols-md-3 g-4" id="recommendations-container-2">
+                        <!-- Second set of recommendations will be dynamically added here -->
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="row row-cols-1 row-cols-md-3 g-4" id="recommendations-container-3">
+                        <!-- Third set of recommendations will be dynamically added here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-navigation mt-4 d-flex justify-content-between align-items-center">
+            <button class="btn btn-outline-primary" type="button" data-bs-target="#destinationCarousel" data-bs-slide="prev">
+                <i class="fas fa-chevron-left"></i> Previous
+            </button>
+            <div class="carousel-indicators position-relative bottom-0">
+                <button type="button" data-bs-target="#destinationCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#destinationCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#destinationCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <button class="btn btn-outline-primary" type="button" data-bs-target="#destinationCarousel" data-bs-slide="next">
+                Next <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+        <div class="text-center mt-4">
+            <button id="loadMoreBtn" class="btn btn-primary btn-lg">Load More Destinations</button>
+        </div>
+    </div>
+</section>
+
+<!-- Destination Modal (unchanged) -->
+<div class="modal fade" id="destinationModal" tabindex="-1" aria-labelledby="destinationModalLabel" aria-hidden="true">
+    <!-- ... (modal content remains the same) ... -->
+</div>
+
+    <!-- Quick Access --><section class="quick-access py-5 bg-gradient">
+    <div class="container">
+        <div class="row justify-content-center">
+            <!-- Plan a Trip -->
+            <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="card hover-lift">
+                    <div class="card-body text-center">
+                        <i class="fas fa-route fa-3x mb-3 text-primary"></i>
+                        <h4 class="card-title">Plan a Trip</h4>
+                        <p class="card-text">Create your perfect itinerary with our advanced trip planner.</p>
+                        <button class="btn btn-primary btn-lg mt-3" onclick="window.location.href='/plan_a_trip'">
+                            Get Started <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Explore Destinations -->
+            <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="card hover-lift">
+                    <div class="card-body text-center">
+                        <i class="fas fa-search-location fa-3x mb-3 text-success"></i>
+                        <h4 class="card-title">Explore Destinations</h4>
+                        <p class="card-text">Discover new and exciting places to visit around the world.</p>
+                        <button class="btn btn-success btn-lg mt-3" onclick="window.location.href='/destinations'">
+                            Explore Now <i class="fas fa-globe-americas ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Saved Trips -->
+            <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="card hover-lift">
+                    <div class="card-body text-center">
+                        <i class="fas fa-bookmark fa-3x mb-3 text-secondary"></i>
+                        <h4 class="card-title">Saved Trips</h4>
+                        <p class="card-text">Access and manage your saved trip plans and itineraries.</p>
+                        <button class="btn btn-secondary btn-lg mt-3" onclick="window.location.href='/saved_trips'">
+                            View Trips <i class="fas fa-suitcase-rolling ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <section id="trip-planner" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Plan Your Dream Trip</h2>
+            <div class="wizard-container">
+                <div class="progress-bar">
+                    <div class="progress" id="wizard-progress"></div>
+                </div>
+                <div class="wizard">
+                    <div class="step active" data-step="1">
+                        <h4>Step 1: Choose Destination</h4>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="wizard-destination" placeholder="Enter Destination">
+                            <label for="wizard-destination">Destination</label>
+                        </div>
+                        <button class="btn btn-primary btn-lg w-100" onclick="nextStep(1)">Next</button>
+                    </div>
+                    <div class="step" data-step="2">
+                        <h4>Step 2: Select Dates</h4>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="trip-dates" placeholder="Select Dates">
+                            <label for="trip-dates">Travel Dates</label>
+                        </div>
+                        <div class="btn-group w-100">
+                            <button class="btn btn-secondary btn-lg" onclick="prevStep(2)">Back</button>
+                            <button class="btn btn-primary btn-lg" onclick="nextStep(2)">Next</button>
+                        </div>
+                    </div>
+                    <div class="step" data-step="3">
+                        <h4>Step 3: Choose Activities</h4>
+                        <div id="activities-container" class="row g-3 mb-3">
+                            <!-- Activities will be dynamically added here -->
+                        </div>
+                        <div class="btn-group w-100">
+                            <button class="btn btn-secondary btn-lg" onclick="prevStep(3)">Back</button>
+                            <button class="btn btn-success btn-lg" onclick="submitTrip()">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map and Itinerary -->
+    <section id="route-display" class="container mt-5">
+        <h3>Map and Itinerary</h3>
+        <div class="row">
+            <div class="col-md-8">
+                <div id="map"></div>
+            </div>
+            <div class="col-md-4">
+                <div id="itinerary" class="mt-4">
+                    <!-- Itinerary details will be dynamically added here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+<section class="testimonials py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-4">What Our Travelers Say</h2>
+        <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <!-- Testimonials will be dynamically added here -->
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+</section>
+
+    <!-- About Section -->
+<section id="about" class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-5 section-title">About Pro Travel Planner</h2>
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <div class="about-content" data-aos="fade-right">
+                    <p class="lead mb-4">Pro Travel Planner is your ultimate companion for creating unforgettable travel experiences. We combine cutting-edge technology with a passion for exploration to bring you personalized trip plans tailored to your preferences.</p>
+                    <p class="mb-4">Our team of travel experts and advanced algorithms work together to ensure that every journey you plan with us is unique, exciting, and hassle-free.</p>
+                    <div class="features">
+                        <div class="feature-item">
+                            <i class="fas fa-map-marked-alt feature-icon"></i>
+                            <span>Personalized Itineraries</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-clock feature-icon"></i>
+                            <span>24/7 Support</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-dollar-sign feature-icon"></i>
+                            <span>Best Price Guarantee</span>
+                        </div>
+                    </div>
+                    <a href="#services" class="btn btn-primary btn-lg mt-4">Explore Our Services</a>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="about-image-container" data-aos="fade-left">
+                    <img src="static/images/about-image.jpg" alt="About Pro Travel Planner" class="img-fluid rounded shadow-lg">
+                    <div class="experience-badge">
+                        <span class="number">10+</span>
+                        <span class="text">Years of Experience</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-4">Contact Us</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <form id="contact-form" class="needs-validation" novalidate>
+                    <div class="mb-3">
+                        <label for="name" class="form-label visually-hidden">Your Name</label>
+                        <input type="text" class="form-control" id="name" placeholder="Your Name" required aria-label="Your Name">
+                        <div class="invalid-feedback">Please enter your name.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label visually-hidden">Your Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Your Email" required aria-label="Your Email">
+                        <div class="invalid-feedback">Please enter a valid email address.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="message" class="form-label visually-hidden">Your Message</label>
+                        <textarea class="form-control" id="message" rows="5" placeholder="Your Message" required aria-label="Your Message"></textarea>
+                        <div class="invalid-feedback">Please enter your message.</div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg w-100">Send Message</button>
+                </form>
+            </div>
+            <div class="col-md-6 mt-4 mt-md-0">
+                <h4 class="mb-4">Get in Touch</h4>
+                <ul class="list-unstyled contact-info">
+                    <li class="mb-3">
+                        <i class="fas fa-map-marker-alt me-2 text-primary"></i>
+                        <span>123 Travel Road, Wanderlust City, TR 45678</span>
+                    </li>
+                    <li class="mb-3">
+                        <i class="fas fa-phone me-2 text-primary"></i>
+                        <a href="tel:+12345678901" class="text-decoration-none">+1 234 567 8901</a>
+                    </li>
+                    <li class="mb-3 email-container">
+                        <i class="fas fa-envelope me-2 text-primary" aria-hidden="true"></i>
+                        <a href="mailto:srinathnani09@gmail.com" class="email-link" id="emailLink">
+                            srinathnani09@gmail.com
+                        </a>
+                    </li>
+                </ul>
+
+                <h5 class="mt-5 mb-4">Follow Us</h5>
+                <div class="d-flex justify-content-start flex-wrap">
+                    <a href="https://www.facebook.com" class="social-icon facebook me-3 mb-3" aria-label="Follow us on Facebook">
+                        <i class="bi bi-facebook"></i>
+                    </a>
+                    <a href="https://www.twitter.com" class="social-icon twitter me-3 mb-3" aria-label="Follow us on Twitter">
+                        <i class="bi bi-twitter"></i>
+                    </a>
+                    <a href="https://www.instagram.com" class="social-icon instagram me-3 mb-3" aria-label="Follow us on Instagram">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+                    <a href="https://www.linkedin.com" class="social-icon linkedin mb-3" aria-label="Connect with us on LinkedIn">
+                        <i class="bi bi-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Weather Widget -->
+<section class="weather-widget py-4 bg-gradient">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow-lg">
+                    <div class="card-body">
+                        <h3 class="card-title text-center mb-4">Weather Information</h3>
+                        <div class="input-group mb-3">
+                            <input type="text" id="location-input" class="form-control" placeholder="Enter city name">
+                            <button class="btn btn-outline-secondary" type="button" id="search-weather">
+                                <i class="fas fa-search"></i> Search
+                            </button>
+                        </div>
+                        <div id="weather-info" class="text-center">
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                            <p class="mt-2">Loading weather information...</p>
+                        </div>
+                        <div id="weather-details" class="row mt-4" style="display: none;">
+                            <div class="col-md-6 text-center">
+                                <h4 id="location-name" class="mb-3">Current Location</h4>
+                                <i id="weather-icon" class="wi wi-day-sunny display-1"></i>
+                                <h2 id="temperature" class="mt-3">--°C</h2>
+                                <p id="description" class="text-muted">--</p>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        Humidity
+                                        <span id="humidity" class="badge bg-primary rounded-pill">--%</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        Wind Speed
+                                        <span id="wind-speed" class="badge bg-primary rounded-pill">-- m/s</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        Pressure
+                                        <span id="pressure" class="badge bg-primary rounded-pill">-- hPa</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="text-center mt-4">
+                            <button id="refresh-weather" class="btn btn-primary">
+                                <i class="fas fa-sync-alt me-2"></i> Refresh Weather
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Dialogflow Messenger -->
+
+<df-messenger
+intent="WELCOME"
+chat-title="Travel Agent Extraordinaire"
+agent-id="d26ef714-54ab-4eaf-a7e5-c220d8acf25d"
+language-code="en"
+chat-icon="https://example.com/custom-icon.png"
+expand="true"
+wait-open="true"
+allow-feedback="true">
+<df-messenger-chat-bubble
+    chat-title="Need travel assistance?"
+    bot-writing-text="Planning your perfect trip..."
+    placeholder-text="Ask me anything about travel!">
+</df-messenger-chat-bubble>
+
+<df-messenger-user-input
+    send-icon="system"
+    placeholder-text="Type your travel question here">
+</df-messenger-user-input>
+</df-messenger>
+
+<!-- Floating Action Button -->
+<div id="fab-container">
+    <button class="fab fab-main" aria-label="Menu" onclick="toggleFabMenu()">
+        ≡
+    </button>
+    <button id="fab-item-1" class="fab fab-item" onclick="scrollToTop()" aria-label="Scroll to top">
+        ↑
+    </button>
+    <button id="fab-item-2" class="fab fab-item" onclick="toggleDarkMode()" aria-label="Toggle dark mode">
+        ☾
+    </button>
+    <button id="fab-item-3" class="fab fab-item" onclick="shareContent()" aria-label="Share content">
+        ↗
+    </button>
+</div>
+
+<div class="container my-5">
+    <h2 class="text-center mb-4">Travel Insights Dashboard</h2>
+    <div class="row">
+      <div class="col-md-6 mb-4">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">Popular Destinations</h5>
+            <canvas id="popularDestinations"></canvas>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 mb-4">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">Tourism Growth</h5>
+            <canvas id="tourismGrowth"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8 mb-4">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">Seasonal Travel Trends</h5>
+            <canvas id="seasonalTrends"></canvas>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">Travel Mode Distribution</h5>
+            <canvas id="travelModes"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Footer -->
+<footer class="footer bg-dark text-light py-5 mt-5">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6">
+                <h5 class="text-uppercase fw-bold mb-4">Pro Travel Planner</h5>
+                <p class="mb-3">Your ultimate companion for personalized travel planning. Discover new destinations, create tailored itineraries, and explore the world with ease.</p>
+                <div class="mt-4 social-icons">
+                    <a href="#" class="btn btn-outline-light btn-floating m-1" role="button" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="btn btn-outline-light btn-floating m-1" role="button" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="btn btn-outline-light btn-floating m-1" role="button" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="btn btn-outline-light btn-floating m-1" role="button" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-6">
+                <h5 class="text-uppercase fw-bold mb-4">Quick Links</h5>
+                <ul class="list-unstyled mb-0">
+                    <li class="mb-2"><a href="#home" class="footer-link"><i class="fas fa-angle-right me-2"></i>Home</a></li>
+                    <li class="mb-2"><a href="#destinations" class="footer-link"><i class="fas fa-angle-right me-2"></i>Destinations</a></li>
+                    <li class="mb-2"><a href="#trip-planner" class="footer-link"><i class="fas fa-angle-right me-2"></i>Plan Trip</a></li>
+                    <li class="mb-2"><a href="#about" class="footer-link"><i class="fas fa-angle-right me-2"></i>About</a></li>
+                    <li class="mb-2"><a href="#contact" class="footer-link"><i class="fas fa-angle-right me-2"></i>Contact</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h5 class="text-uppercase fw-bold mb-4">Contact Us</h5>
+                <ul class="list-unstyled mb-0">
+                    <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i>123 Travel Street, City, Country</li>
+                    <li class="mb-2"><i class="fas fa-phone me-2"></i>+1 (555) 123-4567</li>
+                    <li class="mb-2"><i class="fas fa-envelope me-2"></i>info@protravelplanner.com</li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h5 class="text-uppercase fw-bold mb-4">Newsletter</h5>
+                <p class="mb-3">Subscribe for travel tips and exclusive offers.</p>
+                <form id="newsletter-form" class="needs-validation" novalidate>
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" placeholder="Your Email" aria-label="Your Email" aria-describedby="subscribe-button" required>
+                        <button class="btn btn-primary" type="submit" id="subscribe-button">Subscribe</button>
+                        <div class="invalid-feedback">Please enter a valid email address.</div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <hr class="my-4 bg-secondary">
+        <div class="row align-items-center">
+            <div class="col-md-7 col-lg-8 text-center text-md-start">
+                <p class="mb-md-0">&copy; 2024 Pro Travel Planner. All Rights Reserved.</p>
+            </div>
+            <div class="col-md-5 col-lg-4 text-center text-md-end">
+                <a href="#" class="footer-link me-3">Privacy Policy</a>
+                <a href="#" class="footer-link">Terms of Use</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPnLXTOd76DE4Ks3uHbj8AOEvRh30dzlo&callback=initMap" async defer></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"> 
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="{{ url_for('static', filename='js/index.js') }}"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Popular Destinations Chart
+        const popularDestinationsCtx = document.getElementById('popularDestinations').getContext('2d');
+        new Chart(popularDestinationsCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Paris', 'Tokyo', 'New York', 'London', 'Rome'],
+                datasets: [{
+                    label: 'Number of Visitors (millions)',
+                    data: [15.8, 12.9, 12.7, 11.5, 9.6],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.8)',
+                        'rgba(54, 162, 235, 0.8)',
+                        'rgba(255, 206, 86, 0.8)',
+                        'rgba(75, 192, 192, 0.8)',
+                        'rgba(153, 102, 255, 0.8)'
+                    ],
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Tourism Growth Chart
+        const tourismGrowthCtx = document.getElementById('tourismGrowth').getContext('2d');
+        new Chart(tourismGrowthCtx, {
+            type: 'line',
+            data: {
+                labels: ['2019', '2020', '2021', '2022', '2023'],
+                datasets: [{
+                    label: 'Global Tourism Revenue (billion USD)',
+                    data: [1481, 640, 950, 1271, 1317],
+                    borderColor: 'rgb(75, 192, 192)',
+                    tension: 0.1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: false
+                    }
+                }
+            }
+        });
+
+        // Travel Mode Distribution Chart
+        const travelModesCtx = document.getElementById('travelModes').getContext('2d');
+        new Chart(travelModesCtx, {
+            type: 'pie',
+            data: {
+                labels: ['Air', 'Road', 'Rail', 'Sea'],
+                datasets: [{
+                    data: [58, 37, 2, 3],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.8)',
+                        'rgba(54, 162, 235, 0.8)',
+                        'rgba(255, 206, 86, 0.8)',
+                        'rgba(75, 192, 192, 0.8)'
+                    ],
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'right',
+                    }
+                }
+            }
+        });
+
+        // Seasonal Travel Trends Chart
+        const seasonalTrendsCtx = document.getElementById('seasonalTrends').getContext('2d');
+        new Chart(seasonalTrendsCtx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                datasets: [{
+                    label: 'Tourist Arrivals (millions)',
+                    data: [5, 5.5, 7, 8, 9, 12, 15, 14, 11, 9, 7, 6],
+                    borderColor: 'rgb(255, 99, 132)',
+                    tension: 0.1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    });
+    </script>
+</body>
+</html>

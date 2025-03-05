@@ -1,0 +1,256 @@
+:root {
+    --primary-color: #455A64;  /* Slate blue for skyscrapers and urban feel */
+    --secondary-color: #8D6E63;  /* Warm brown for brick buildings */
+    --accent-color: #558B2F;  /* Forest green for Central Park */
+    --text-color: #212121;  /* Dark gray for text */
+    --light-bg: #ECEFF1;  /* Light blue-gray for backgrounds */
+    --dark-bg: #263238;  /* Dark blue-gray for night sky */
+    --white: #FFFFFF;
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+  }
+  
+  /* Typography */
+  body {
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 1rem;
+  }
+  
+  /* Navbar */
+  .navbar {
+    transition: var(--transition);
+  }
+  
+  .navbar-scrolled {
+    background-color: rgba(69, 90, 100, 0.9);  /* Semi-transparent primary color */
+    box-shadow: var(--shadow-sm);
+  }
+  
+  /* Hero Section */
+  .hero {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: var(--white);
+    z-index: 2;
+  }
+  
+  .hero-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  .hero-subtitle {
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  }
+  
+  .video-container {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .video-container video {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(38, 50, 56, 0.6);  /* Dark overlay with primary color tint */
+  }
+  
+  /* Buttons */
+  .btn-custom {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    border: none;
+    padding: 10px 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: var(--transition);
+  }
+  
+  .btn-custom:hover, .btn-custom:focus {
+    background-color: var(--accent-color);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  /* Section Titles */
+  .section-title {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 2rem;
+  }
+  
+  .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: var(--secondary-color);
+  }
+  
+  /* Cards */
+  .card {
+    border: none;
+    transition: var(--transition);
+    background-color: var(--white);
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  /* Activity Grid */
+  .activity-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+  
+  .activity-card {
+    background-color: var(--light-bg);
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    transition: var(--transition);
+  }
+  
+  .activity-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .activity-icon {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+  }
+  
+  /* Map */
+  #map {
+    height: 400px;
+    width: 100%;
+    border-radius: 10px;
+  }
+  
+  /* Landmark Modal */
+  .landmark-modal .modal-content {
+    border-radius: 15px;
+    overflow: hidden;
+  }
+  
+  .landmark-modal .modal-header {
+    background-color: var(--primary-color);
+    color: var(--white);
+  }
+  
+  .landmark-modal .modal-body {
+    padding: 2rem;
+  }
+  
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+  
+  .info-grid h6 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Footer */
+  footer {
+    background-color: var(--dark-bg);
+    color: var(--white);
+    padding: 2rem 0;
+  }
+  
+  .social-icons a {
+    font-size: 1.5rem;
+    margin-right: 1rem;
+    color: var(--white);
+    transition: var(--transition);
+  }
+  
+  .social-icons a:hover {
+    color: var(--secondary-color);
+  }
+  
+  /* Destinations Section */
+  #destinations {
+    background-color: var(--light-bg);
+    padding: 4rem 0;
+  }
+  
+  .landmark-info {
+    background-color: var(--white);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: var(--shadow-md);
+  }
+  
+  .landmark-facts li {
+    margin-bottom: 10px;
+  }
+  
+  .landmark-facts i {
+    color: var(--secondary-color);
+    margin-right: 0.5rem;
+  }
+  
+  #landmarkCarousel {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+  }
+  
+  .carousel-item img {
+    object-fit: cover;
+    height: 400px;
+    width: 100%;
+  }
+  
+  .carousel-caption {
+    background-color: rgba(69, 90, 100, 0.7);  /* Semi-transparent primary color */
+    border-radius: 5px;
+    padding: 10px;
+  }
+  
+  /* Media Queries */
+  @media (max-width: 768px) {
+    .hero-content {
+      width: 90%;
+    }
+  }
+  #map { height: 400px; }
+        .landmark-info { height: 400px; overflow-y: auto; }

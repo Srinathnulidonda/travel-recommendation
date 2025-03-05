@@ -1,0 +1,12 @@
+Flask
+Flask-SQLAlchemy
+Flask-Migrate
+SQLAlchemy
+bcrypt
+requests
+numpy
+pandas
+scikit-learn
+tensorflow
+nltk
+gunicorns

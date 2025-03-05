@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover the magic of Paris with our immersive travel experience. Plan your perfect trip to the City of Light with expert recommendations, interactive maps, and real-time information.">
+    <title>Paris Explorer | Your Ultimate Guide to the City of Light</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="static/css/paris.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top custom-navbar">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="static/images/paris.png" alt="Rome Explorer Logo" class="me-2 rounded-circle" width="40" height="40">
+                <span class="font-weight-bold text-primary">Paris Explorer</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#destinations">
+                            <i class="fas fa-map-marker-alt me-1"></i> Destinations
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#activities">
+                            <i class="fas fa-hiking me-1"></i> Activities
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#history">
+                            <i class="fas fa-landmark me-1"></i> History
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">
+                            <i class="fas fa-envelope me-1"></i> Contact
+                        </a>
+                    </li>
+                </ul>
+                <form class="d-flex ms-3">
+                    <div class="input-group">
+                        <input class="form-control" type="search" placeholder="Search Paris..." aria-label="Search">
+                        <button class="btn btn-outline-primary" type="submit"><i class="fas fa-search"></i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="video-container">
+            <video autoplay muted loop preload="auto" id="headerVideo">
+                <source src="static/videos/paris1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="overlay"></div>
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title" data-aos="fade-up">Discover Paris</h1>
+            <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">Experience the magic of the City of Light</p>
+            <a href="#destinations" class="btn btn-custom btn-lg" data-aos="fade-up" data-aos-delay="400">Explore Now</a>
+        </div>
+    </header>
+
+    <main class="container my-5">
+        <section id="destinations" class="py-5 bg-light">
+            <div class="container">
+                <h2 class="text-center section-title" data-aos="fade-up">Explore Paris</h2>
+                <div class="row g-4">
+                    <div class="col-lg-8">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body">
+                                <h3 class="card-title mb-4">Iconic Landmarks</h3>
+                                <div id="landmarkCarousel" class="carousel slide" data-bs-ride="carousel">
+                                    <div class="carousel-inner rounded">
+                                        <div class="carousel-item active">
+                                            <img src="https://i.postimg.cc/ZRxxBD5C/Eiffel-Tower.jpg" class="d-block w-100" alt="Eiffel Tower">
+                                            <div class="carousel-caption d-none d-md-block">
+                                                <h5>Eiffel Tower</h5>
+                                                <p>The symbol of Paris, offering stunning city views</p>
+                                                <button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#eiffelModal">Explore</button>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="https://i.postimg.cc/RF7dcVBk/louvre-5767708.jpg" class="d-block w-100" alt="Louvre Museum">
+                                            <div class="carousel-caption d-none d-md-block">
+                                                <h5>Louvre Museum</h5>
+                                                <p>Home to the Mona Lisa and countless other masterpieces</p>
+                                                <button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#louvreModal">Explore</button>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="https://i.postimg.cc/NFVKFmnB/cathedral-3599931.jpg" class="d-block w-100" alt="Notre-Dame Cathedral">
+                                            <div class="carousel-caption d-none d-md-block">
+                                                <h5>Notre-Dame Cathedral</h5>
+                                                <p>A masterpiece of French Gothic architecture</p>
+                                                <button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#notreDameModal">Explore</button>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="https://i.postimg.cc/d13QCDr1/arc-de-triomphe-514288.jpg" class="d-block w-100" alt="Arc de Triomphe">
+                                            <div class="carousel-caption d-none d-md-block">
+                                                <h5>Arc de Triomphe</h5>
+                                                <p>Iconic monument honoring those who fought for France</p>
+                                                <button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#arcDeTriompheModal">Explore</button>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="https://i.postimg.cc/PxCpjS62/sacre-coeur-493076-1920.jpg" class="d-block w-100" alt="Sacré-Cœur">
+                                            <div class="carousel-caption d-none d-md-block">
+                                                <h5>Sacré-Cœur</h5>
+                                                <p>Beautiful basilica atop the hill of Montmartre</p>
+                                                <button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#sacreCœurModal">Explore</button>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="https://i.postimg.cc/hPLJczrW/versailles-318459-1920.jpg" class="d-block w-100" alt="Palace of Versailles">
+                                            <div class="carousel-caption d-none d-md-block">
+                                                <h5>Palace of Versailles</h5>
+                                                <p>Opulent royal château in the Île-de-France region</p>
+                                                <button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#versaillesModal">Explore</button>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="https://i.postimg.cc/dQWHn3dF/paris-6657443-1920.jpg" class="d-block w-100" alt="Musée d'Orsay">
+                                            <div class="carousel-caption d-none d-md-block">
+                                                <h5>Musée d'Orsay</h5>
+                                                <p>Renowned for its collection of impressionist art</p>
+                                                <button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#museeOrsayModal">Explore</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#landmarkCarousel" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-bs-target="#landmarkCarousel" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Next</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="row g-4">
+                            <div class="col-12">
+                                <div class="card shadow-sm">
+                                    <div class="card-body">
+                                        <h4 class="card-title"><i class="fas fa-newspaper me-2"></i>Travel Updates</h4>
+                                        <div id="travelUpdates">
+                                            <div class="spinner-border text-primary" role="status">
+                                                <span class="visually-hidden">Loading...</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="card shadow-sm">
+                                    <div class="card-body">
+                                        <h4 class="card-title"><i class="fas fa-route me-2"></i>Smart Itineraries</h4>
+                                        <p class="card-text">Plan your perfect Paris trip with our AI-powered itinerary generator.</p>
+                                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#itineraryModal">Create Itinerary</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="activities" class="mb-5">
+            <h2 class="text-center section-title" data-aos="fade-up">Popular Activities</h2>
+            <div class="activity-grid">
+                <div class="activity-card" data-aos="fade-up">
+                    <div class="card-body text-center">
+                        <i class="fas fa-utensils activity-icon"></i>
+                        <h5>Culinary Tours</h5>
+                        <p>Experience French gastronomy</p>
+                        <button class="btn btn-custom">Book Now</button>
+                    </div>
+                </div>
+                <div class="activity-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card-body text-center">
+                        <i class="fas fa-palette activity-icon"></i>
+                        <h5>Art Museums</h5>
+                        <p>Discover world-class art collections</p>
+                        <button class="btn btn-custom">Book Now</button>
+                    </div>
+                </div>
+                <div class="activity-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card-body text-center">
+                        <i class="fas fa-bicycle activity-icon"></i>
+                        <h5>City Bike Tours</h5>
+                        <p>Explore Paris on two wheels</p>
+                        <button class="btn btn-custom">Book Now</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="map-section" class="mb-5">
+            <h2 class="text-center section-title" data-aos="fade-up">Explore Paris</h2>
+            <div class="row">
+                <div class="col-md-8" data-aos="fade-right">
+                    <div id="map"></div>
+                </div>
+                <div class="col-md-4" data-aos="fade-left">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Popular Destinations</h5>
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <h6>Eiffel Tower</h6>
+                                    <p class="mb-1">The iconic symbol of Paris</p>
+                                    <button class="btn btn-sm btn-outline-primary" onclick="showOnMap('Eiffel Tower')">Show on Map</button>
+                                </li>
+                                <li class="list-group-item">
+                                    <h6>Louvre Museum</h6>
+                                    <p class="mb-1">Home to the Mona Lisa</p>
+                                    <button class="btn btn-sm btn-outline-primary" onclick="showOnMap('Louvre Museum')">Show on Map</button>
+                                </li>
+                                <li class="list-group-item">
+                                    <h6>Arc de Triomphe</h6>
+                                    <p class="mb-1">Historic monument and landmark</p>
+                                    <button class="btn btn-sm btn-outline-primary" onclick="showOnMap('Arc de Triomphe')">Show on Map</button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card mt-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Map Controls</h5>
+                            <button class="btn btn-primary btn-sm mb-2" onclick="toggleHeatmap()">Toggle Heatmap</button>
+                            <button class="btn btn-primary btn-sm mb-2" onclick="toggleTraffic()">Toggle Traffic</button>
+                            <button class="btn btn-primary btn-sm" onclick="draw3DBuildings()">Show 3D Buildings</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+    </main>
+    <!-- Smart Itinerary Modal -->
+<div class="modal fade" id="itineraryModal" tabindex="-1" aria-labelledby="itineraryModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="itineraryModalLabel">Create Your Smart Itinerary</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="itineraryForm">
+                    <div class="mb-3">
+                        <label for="tripDuration" class="form-label">Trip Duration (days)</label>
+                        <input type="range" class="form-range" id="tripDuration" min="1" max="14" value="3">
+                        <output id="tripDurationOutput">3 days</output>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Interests</label>
+                        <div class="btn-group-toggle" data-toggle="buttons">
+                            <label class="btn btn-outline-primary">
+                                <input type="checkbox" value="art"> Art & Museums
+                            </label>
+                            <label class="btn btn-outline-primary">
+                                <input type="checkbox" value="history"> History & Architecture
+                            </label>
+                            <label class="btn btn-outline-primary">
+                                <input type="checkbox" value="food"> Food & Wine
+                            </label>
+                            <label class="btn btn-outline-primary">
+                                <input type="checkbox" value="shopping"> Shopping
+                            </label>
+                            <label class="btn btn-outline-primary">
+                                <input type="checkbox" value="nature"> Parks & Gardens
+                            </label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Generate Itinerary</button>
+                </form>
+                <div id="itineraryResult" class="mt-4"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Add the following Landmark Modals before the closing body tag -->
+    <!-- Eiffel Tower Modal -->
+    <div class="modal fade landmark-modal" id="eiffelModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Eiffel Tower</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="https://i.postimg.cc/nLQ0hGwc/the-eiffel-tower-4104637.jpg" class="img-fluid mb-3" alt="Eiffel Tower">
+                    <h6 class="mb-3">The Icon of Paris</h6>
+                    <p>The Eiffel Tower is a wrought-iron lattice tower on the Champ de Mars in Paris. Constructed from 1887 to 1889, it has become the most iconic symbol of both Paris and France.</p>
+                    <div class="info-grid mt-4">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6>Quick Facts:</h6>
+                                <ul class="list-unstyled">
+                                    <li>🏗️ Height: 324 meters</li>
+                                    <li>📅 Opened: March 31, 1889</li>
+                                    <li>👥 Annual Visitors: 7 million</li>
+                                    <li>🎨 Paint Used: 60 tons every 7 years</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h6>Best Times to Visit:</h6>
+                                <ul class="list-unstyled">
+                                    <li>🌅 Sunrise: Peaceful views</li>
+                                    <li>🌆 Sunset: Romantic atmosphere</li>
+                                    <li>✨ Night: Sparkling light show</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-custom">Book Tickets</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Louvre Museum Modal -->
+    <div class="modal fade landmark-modal" id="louvreModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Louvre Museum</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="https://i.postimg.cc/RF7dcVBk/louvre-5767708.jpg" class="img-fluid mb-3" alt="Louvre Museum">
+                    <h6 class="mb-3">World's Largest Art Museum</h6>
+                    <p>The Louvre Museum is the world's largest art museum and a historic monument in Paris. Home to thousands of works of art, including the famous Mona Lisa, it's a must-visit destination for art lovers.</p>
+                    <div class="info-grid mt-4">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6>Highlights:</h6>
+                                <ul class="list-unstyled">
+                                    <li>🎨 Mona Lisa</li>
+                                    <li>🗽 Venus de Milo</li>
+                                    <li>👑 Crown Jewels</li>
+                                    <li>⚔️ Ancient Artifacts</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h6>Visitor Information:</h6>
+                                <ul class="list-unstyled">
+                                    <li>⏰ Hours: 9 AM - 6 PM</li>
+                                    <li>📅 Closed: Tuesdays</li>
+                                    <li>🎟️ Free: Under 18</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-custom">Purchase Tickets</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notre-Dame Cathedral Modal -->
+    <div class="modal fade landmark-modal" id="notreDameModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Notre-Dame Cathedral</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="https://i.postimg.cc/NFVKFmnB/cathedral-3599931.jpg" class="img-fluid mb-3" alt="Notre-Dame Cathedral">
+                    <h6 class="mb-3">Medieval Catholic Cathedral</h6>
+                    <p>Notre-Dame de Paris is a medieval Catholic cathedral on the Île de la Cité. Known for its French Gothic architecture, the cathedral is currently undergoing restoration following the 2019 fire.</p>
+                    <div class="info-grid mt-4">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6>Architecture:</h6>
+                                <ul class="list-unstyled">
+                                    <li>🏰 Style: French Gothic</li>
+                                    <li>📏 Height: 69 meters</li>
+                                    <li>🎨 Famous Gargoyles</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h6>Restoration:</h6>
+                                <ul class="list-unstyled">
+                                    <li>🏗️ Ongoing Repairs</li>
+                                    <li>📅 Expected Completion: 2024</li>
+                                    <li>🔄 Historic Preservation</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-custom">Learn More</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Arc de Triomphe Modal -->
+<div class="modal fade landmark-modal" id="arcDeTriompheModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Arc de Triomphe</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <img src="https://i.postimg.cc/d13QCDr1/arc-de-triomphe-514288.jpg" class="img-fluid mb-3" alt="Arc de Triomphe">
+                <h6 class="mb-3">Iconic Monument of Paris</h6>
+                <p>The Arc de Triomphe honors those who fought and died for France in the French Revolutionary and Napoleonic Wars. The monument stands at the western end of the Champs-Élysées at the center of Place Charles de Gaulle.</p>
+                <div class="info-grid mt-4">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6>Quick Facts:</h6>
+                            <ul class="list-unstyled">
+                                <li>🏛️ Height: 50 meters</li>
+                                <li>📅 Completed: 1836</li>
+                                <li>🔥 Eternal flame: Tomb of the Unknown Soldier</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h6>Visitor Information:</h6>
+                            <ul class="list-unstyled">
+                                <li>🕒 Open daily: 10 AM - 10:30 PM</li>
+                                <li>🎟️ Admission: Paid entry</li>
+                                <li>🏙️ Panoramic views of Paris</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-custom">Book Tickets</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Sacré-Cœur Modal -->
+<div class="modal fade landmark-modal" id="sacreCœurModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Sacré-Cœur</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <img src="https://i.postimg.cc/PxCpjS62/sacre-coeur-493076-1920.jpg" class="img-fluid mb-3" alt="Sacré-Cœur">
+                <h6 class="mb-3">The Sacred Heart of Paris</h6>
+                <p>The Basilica of the Sacred Heart of Paris, commonly known as Sacré-Cœur Basilica, is a Roman Catholic church and minor basilica in Paris, France. A popular landmark, it is located at the summit of the butte Montmartre, the highest point in the city.</p>
+                <div class="info-grid mt-4">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6>Architecture:</h6>
+                            <ul class="list-unstyled">
+                                <li>🏛️ Style: Romano-Byzantine</li>
+                                <li>📅 Completed: 1914</li>
+                                <li>🔔 One of the largest bells in France</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h6>Visitor Information:</h6>
+                            <ul class="list-unstyled">
+                                <li>🕒 Open daily: 6:30 AM - 10:30 PM</li>
+                                <li>🎟️ Free entry to the Basilica</li>
+                                <li>🏙️ Panoramic view of Paris</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-custom">Plan Your Visit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Palace of Versailles Modal -->
+<div class="modal fade landmark-modal" id="versaillesModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Palace of Versailles</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <img src="https://i.postimg.cc/hPLJczrW/versailles-318459-1920.jpg" class="img-fluid mb-3" alt="Palace of Versailles">
+                <h6 class="mb-3">Royal Château of Versailles</h6>
+                <p>The Palace of Versailles was the principal royal residence of France from 1682, under Louis XIV, until the start of the French Revolution in 1789, under Louis XVI. It is located in the department of Yvelines, in the region of Île-de-France, about 20 kilometers southwest of the center of Paris.</p>
+                <div class="info-grid mt-4">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6>Highlights:</h6>
+                            <ul class="list-unstyled">
+                                <li>👑 Hall of Mirrors</li>
+                                <li>🏛️ Royal Opera</li>
+                                <li>🌳 Gardens of Versailles</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h6>Visitor Information:</h6>
+                            <ul class="list-unstyled">
+                                <li>🕒 Open Tue-Sun: 9 AM - 5:30 PM</li>
+                                <li>🎟️ Admission: Paid entry</li>
+                                <li>🚆 RER C from Paris</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-custom">Book Tickets</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Musée d'Orsay Modal -->
+<div class="modal fade landmark-modal" id="museeOrsayModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Musée d'Orsay</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <img src="https://i.postimg.cc/dQWHn3dF/paris-6657443-1920.jpg" class="img-fluid mb-3" alt="Musée d'Orsay">
+                <h6 class="mb-3">Impressionist and Post-Impressionist Masterpieces</h6>
+                <p>The Musée d'Orsay is a museum in Paris, France, on the Left Bank of the Seine. It is housed in the former Gare d'Orsay, a Beaux-Arts railway station built between 1898 and 1900. The museum holds mainly French art dating from 1848 to 1914, including paintings, sculptures, furniture, and photography.</p>
+                <div class="info-grid mt-4">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6>Famous Works:</h6>
+                            <ul class="list-unstyled">
+                                <li>🎨 Starry Night by Van Gogh</li>
+                                <li>🖼️ Bal du moulin de la Galette by Renoir</li>
+                                <li>🗿 The Gates of Hell by Rodin</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h6>Visitor Information:</h6>
+                            <ul class="list-unstyled">
+                                <li>🕒 Open Tue-Sun: 9:30 AM - 6 PM</li>
+                                <li>🎟️ Admission: Paid entry</li>
+                                <li>🚇 Metro: Solférino</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-custom">Purchase Tickets</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <footer class="bg-dark text-light py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>About Paris Explorer</h5>
+                    <p>We're passionate about helping you discover the magic of Paris. Our expert guides and curated experiences ensure an unforgettable journey through the City of Light.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-light">Home</a></li>
+                        <li><a href="#destinations" class="text-light">Destinations</a></li>
+                        <li><a href="#activities" class="text-light">Activities</a></li>
+                        <li><a href="#" class="text-light">Blog</a></li>
+                        <li><a href="#contact" class="text-light">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Stay Connected</h5>
+                    <p>Subscribe to our newsletter for the latest updates and exclusive offers.</p>
+                    <form>
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="Your email" aria-label="Your email" aria-describedby="button-addon2">
+                            <button class="btn btn-custom" type="button" id="button-addon2">Subscribe</button>
+                        </div>
+                    </form>
+                    <div class="social-icons mt-3">
+                        <a href="#" class="text-light me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-light"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="mt-4 mb-3">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>&copy; 2024 Paris Explorer. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="text-light me-3">Privacy Policy</a>
+                    <a href="#" class="text-light">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="static/js/paris.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize tooltips
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+            var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl);
+            });
+        
+            // Handle modal loading states
+            const landmarkModals = document.querySelectorAll('.landmark-modal');
+            landmarkModals.forEach(modal => {
+                modal.addEventListener('show.bs.modal', function() {
+                    // Remove the loading simulation
+                    const modalBody = this.querySelector('.modal-body');
+                    modalBody.classList.add('fade-in');
+                });
+            });
+        
+            // Enhance carousel accessibility
+            const carousel = document.querySelector('#landmarkCarousel');
+            const carouselItems = carousel.querySelectorAll('.carousel-item');
+            
+            carouselItems.forEach((item, index) => {
+                const img = item.querySelector('img');
+                const caption = item.querySelector('.carousel-caption');
+                
+                // Ensure proper ARIA labels
+                img.setAttribute('aria-labelledby', `carousel-caption-${index}`);
+                caption.setAttribute('id', `carousel-caption-${index}`);
+            });
+        });
+    </script>
+</body>
+</html>

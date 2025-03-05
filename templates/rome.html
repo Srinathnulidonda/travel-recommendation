@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover the wonders of Rome with our immersive travel experience. Plan your perfect trip to the Eternal City with expert recommendations, interactive maps, and real-time information.">
+    <title>Rome Explorer | Your Ultimate Guide to the Eternal City</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPnLXTOd76DE4Ks3uHbj8AOEvRh30dzlo&callback=initMap&libraries=places" async defer></script>
+    <link rel="stylesheet" href="static/css/rome.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top custom-navbar">
+        <div class="container">
+          <a class="navbar-brand d-flex align-items-center" href="#">
+            <img src="https://i.postimg.cc/sDHnZb6B/images-1.jpg" alt="Rome Explorer Logo" class="me-2 rounded-circle" width="40" height="40">
+            <span class="font-weight-bold text-primary">Roman Odyssey</span>
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link hover-effect" href="#destinations">
+                  <i class="fas fa-map-marker-alt me-1"></i> Destinations
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link hover-effect" href="#activities">
+                  <i class="fas fa-hiking me-1"></i> Activities
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link hover-effect" href="#history">
+                  <i class="fas fa-landmark me-1"></i> History
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link hover-effect" href="#testimonials">
+                  <i class="fas fa-comments me-1"></i> Testimonials
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link hover-effect" href="#contact">
+                  <i class="fas fa-envelope me-1"></i> Contact
+                </a>
+              </li>
+            </ul>
+            <form class="d-flex ms-3 search-form">
+              <input class="form-control me-2" type="search" placeholder="Search Rome..." aria-label="Search">
+              <button class="btn btn-outline-primary" type="submit"><i class="fas fa-search"></i></button>
+            </form>
+            <div class="ms-3">
+              <button class="btn btn-primary login-btn" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+    <header class="hero">
+        <video autoplay loop muted playsinline>
+            <source src="static/videos/rome_timelaps.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="hero-content">
+            <h1 class="display-3">Discover the Eternal City</h1>
+            <p class="lead">Experience the magic of Rome with our curated travel experiences</p>
+            <a href="#destinations" class="btn btn-primary btn-lg">Explore Now</a>
+        </div>
+    </header>
+
+    <main class="container my-5">
+        <section class="intro-section text-center mb-5">
+            <h2 data-aos="fade-up">Welcome to Rome</h2>
+            <p data-aos="fade-up" data-aos-delay="200">Immerse yourself in the rich history, stunning architecture, and vibrant culture of Italy's capital city. From ancient ruins to Renaissance masterpieces, Rome offers an unforgettable journey through time.</p>
+        </section>
+
+        <!-- Top Destinations Section -->
+    <section id="destinations" class="mb-5">
+        <h2 class="text-center mb-4">Top Destinations</h2>
+        <div id="destinationCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src='https://i.postimg.cc/J0LrmtY3/Colosseum1.jpg' class="d-block w-100" alt="Colosseum">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Colosseum</h5>
+                        <p>Step into the arena of Rome's iconic amphitheater.</p>
+                        <button class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#colosseumModal">Explore</button>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://i.postimg.cc/fbpcLb5V/Vatican-City.jpg" class="d-block w-100" alt="Vatican City">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Vatican City</h5>
+                        <p>Discover the spiritual heart of Rome.</p>
+                        <button class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#vaticanModal">Explore</button>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://i.postimg.cc/FR0LHV76/Trevi-Fountain.jpg" class="d-block w-100" alt="Trevi Fountain">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Trevi Fountain</h5>
+                        <p>Make a wish at Rome's most famous fountain.</p>
+                        <button class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#treviModal">Explore</button>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://i.postimg.cc/bNnJ7c69/Roman-Forum.jpg" class="d-block w-100" alt="Roman Forum">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Roman Forum</h5>
+                        <p>Walk through the heart of ancient Rome.</p>
+                        <button class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#forumModal">Explore</button>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://i.postimg.cc/zG5gpGJg/Pantheon.jpg" class="d-block w-100" alt="Pantheon">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Pantheon</h5>
+                        <p>Marvel at this architectural wonder from ancient Rome.</p>
+                        <button class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#pantheonModal">Explore</button>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#destinationCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#destinationCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- Popular Activities Section -->
+    <section id="activities" class="mb-5">
+        <h2 class="text-center mb-4">Popular Activities</h2>
+        <div class="text-center mb-4">
+            <button class="btn btn-outline-primary filter-btn" data-filter="all">All</button>
+            <button class="btn btn-outline-primary filter-btn" data-filter="food">Food & Drink</button>
+            <button class="btn btn-outline-primary filter-btn" data-filter="tour">Tours</button>
+            <button class="btn btn-outline-primary filter-btn" data-filter="art">Art & Culture</button>
+        </div>
+        <div class="activity-grid">
+            <div class="card text-center" data-category="food">
+                <div class="card-body">
+                    <i class="fas fa-utensils activity-icon"></i>
+                    <h5 class="card-title">Italian Cooking Class</h5>
+                    <p class="card-text">Learn to make authentic Italian dishes from expert local chefs.</p>
+                    <button class="btn btn-primary book-activity" data-activity="Italian Cooking Class">Book Now</button>
+                </div>
+            </div>
+            <div class="card text-center" data-category="tour">
+                <div class="card-body">
+                    <i class="fas fa-motorcycle activity-icon"></i>
+                    <h5 class="card-title">Vespa Tour</h5>
+                    <p class="card-text">Explore Rome like a local on a vintage Vespa scooter.</p>
+                    <button class="btn btn-primary book-activity" data-activity="Vespa Tour">Book Now</button>
+                </div>
+            </div>
+            <div class="card text-center" data-category="food">
+                <div class="card-body">
+                    <i class="fas fa-wine-glass-alt activity-icon"></i>
+                    <h5 class="card-title">Wine Tasting Experience</h5>
+                    <p class="card-text">Sample fine Italian wines with expert sommeliers in historic cellars.</p>
+                    <button class="btn btn-primary book-activity" data-activity="Wine Tasting Experience">Book Now</button>
+                </div>
+            </div>
+            <div class="card text-center" data-category="art">
+                <div class="card-body">
+                    <i class="fas fa-palette activity-icon"></i>
+                    <h5 class="card-title">Fresco Painting Workshop</h5>
+                    <p class="card-text">Learn the ancient technique of fresco painting from skilled artisans.</p>
+                    <button class="btn btn-primary book-activity" data-activity="Fresco Painting Workshop">Book Now</button>
+                </div>
+            </div>
+            <div class="card text-center" data-category="tour">
+                <div class="card-body">
+                    <i class="fas fa-hiking activity-icon"></i>
+                    <h5 class="card-title">Catacombs & Crypts Tour</h5>
+                    <p class="card-text">Discover the underground history of Rome in ancient burial sites.</p>
+                    <button class="btn btn-primary book-activity" data-activity="Catacombs & Crypts Tour">Book Now</button>
+                </div>
+            </div>
+            <div class="card text-center" data-category="food">
+                <div class="card-body">
+                    <i class="fas fa-ice-cream activity-icon"></i>
+                    <h5 class="card-title">Gelato Making Class</h5>
+                    <p class="card-text">Learn to make authentic Italian gelato from master gelato makers.</p>
+                    <button class="btn btn-primary book-activity" data-activity="Gelato Making Class">Book Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+        <section id="history" class="mb-5">
+            <h2 class="text-center mb-4" data-aos="fade-up">Rome Through the Ages</h2>
+            <div class="timeline">
+                <div class="timeline-item left" data-aos="fade-right">
+                    <div class="timeline-content">
+                        <h3>753 BC</h3>
+                        <p>Founding of Rome: According to legend, Romulus founds Rome on the Palatine Hill.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right" data-aos="fade-left">
+                    <div class="timeline-content">
+                        <h3>509 BC</h3>
+                        <p>Roman Republic: The last Etruscan king is overthrown, and the Roman Republic is established.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left" data-aos="fade-right">
+                    <div class="timeline-content">
+                        <h3>27 BC - 476 AD</h3>
+                        <p>Roman Empire: Augustus becomes the first Roman Emperor, marking the beginning of the Roman Empire.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right" data-aos="fade-left">
+                    <div class="timeline-content">
+                        <h3>80 AD</h3>
+                        <p>Colosseum Completed: The iconic Flavian Amphitheater, known as the Colosseum, is inaugurated.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left" data-aos="fade-right">
+                    <div class="timeline-content">
+                        <h3>313 AD</h3>
+                        <p>Edict of Milan: Emperor Constantine I legalizes Christianity in the Roman Empire.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right" data-aos="fade-left">
+                    <div class="timeline-content">
+                        <h3>1377</h3>
+                        <p>Return of the Papacy: The Papacy returns to Rome from Avignon, France.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left" data-aos="fade-right">
+                    <div class="timeline-content">
+                        <h3>1508-1512</h3>
+                        <p>Sistine Chapel: Michelangelo paints the ceiling of the Sistine Chapel.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right" data-aos="fade-left">
+                    <div class="timeline-content">
+                        <h3>1626</h3>
+                        <p>St. Peter's Basilica: The new St. Peter's Basilica is completed and consecrated.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left" data-aos="fade-right">
+                    <div class="timeline-content">
+                        <h3>1870</h3>
+                        <p>Unification of Italy: Rome becomes the capital of the newly unified Kingdom of Italy.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right" data-aos="fade-left">
+                    <div class="timeline-content">
+                        <h3>1929</h3>
+                        <p>Vatican City: The Lateran Treaty establishes Vatican City as an independent state.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left" data-aos="fade-right">
+                    <div class="timeline-content">
+                        <h3>1980</h3>
+                        <p>UNESCO World Heritage: The historic center of Rome is designated as a UNESCO World Heritage site.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="weather-widget" class="mb-5">
+            <h2 class="text-center mb-4" data-aos="fade-up">Current Weather in Rome</h2>
+            <div id="weather-info" class="text-center" data-aos="fade-up" data-aos-delay="100">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="currency-converter" class="mb-5">
+            <h2 class="text-center mb-4" data-aos="fade-up">Currency Converter</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="input-group mb-3">
+                        <input type="number" id="amount" class="form-control" placeholder="Enter amount" aria-label="Amount">
+                        <select id="from-currency" class="form-select">
+                            <option value="USD">USD</option>
+                            <option value="EUR">EUR</option>
+                            <option value="GBP">GBP</option>
+                        </select>
+                    </div>
+                    <div class="input-group mb-3">
+                        <select id="to-currency" class="form-select">
+                            <option value="EUR">EUR</option>
+                            <option value="USD">USD</option>
+                            <option value="GBP">GBP</option>
+                        </select>
+                        <button id="convert-btn" class="btn btn-primary">Convert</button>
+                    </div>
+                    <p id="conversion-result" class="text-center"></p>
+                </div>
+            </div>
+        </section>
+        <section id="map-section" class="py-5">
+            <div class="container">
+                <h2 class="text-center mb-4">Explore Rome</h2>
+                <div class="row">
+                    <div class="col-md-8">
+                        <div id="map-container">
+                            <div id="map"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Popular Destinations</h5>
+                                <ul class="list-group" id="destinations-list">
+                                    <li class="list-group-item" data-lat="41.8902" data-lng="12.4922">
+                                        <h6>Colosseum</h6>
+                                        <p class="mb-1">Ancient amphitheater in the city centre</p>
+                                        <button class="btn btn-sm btn-outline-primary show-on-map">Show on Map</button>
+                                    </li>
+                                    <li class="list-group-item" data-lat="41.9022" data-lng="12.4539">
+                                        <h6>Vatican City</h6>
+                                        <p class="mb-1">Independent city-state and headquarters of the Roman Catholic Church</p>
+                                        <button class="btn btn-sm btn-outline-primary show-on-map">Show on Map</button>
+                                    </li>
+                                    <li class="list-group-item" data-lat="41.9009" data-lng="12.4833">
+                                        <h6>Trevi Fountain</h6>
+                                        <p class="mb-1">Iconic 18th-century fountain</p>
+                                        <button class="btn btn-sm btn-outline-primary show-on-map">Show on Map</button>
+                                    </li>
+                                    <li class="list-group-item" data-lat="41.8986" data-lng="12.4769">
+                                        <h6>Pantheon</h6>
+                                        <p class="mb-1">Former Roman temple, now a church</p>
+                                        <button class="btn btn-sm btn-outline-primary show-on-map">Show on Map</button>
+                                    </li>
+                                    <li class="list-group-item" data-lat="41.8925" data-lng="12.4853">
+                                        <h6>Roman Forum</h6>
+                                        <p class="mb-1">Ruins of ancient government buildings</p>
+                                        <button class="btn btn-sm btn-outline-primary show-on-map">Show on Map</button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Plan Your Route</h5>
+                        <form id="directions-form" class="row g-3">
+                            <div class="col-md-5">
+                                <label for="start" class="form-label">Start:</label>
+                                <input type="text" class="form-control" id="start" placeholder="Enter starting point">
+                            </div>
+                            <div class="col-md-5">
+                                <label for="end" class="form-label">Destination:</label>
+                                <input type="text" class="form-control" id="end" placeholder="Enter final destination">
+                            </div>
+                            <div class="col-md-2">
+                                <label class="form-label">&nbsp;</label>
+                                <button type="button" id="add-waypoint" class="btn btn-secondary w-100">Add Waypoint</button>
+                            </div>
+                            <div class="col-12" id="waypoints-container"></div>
+                            <div class="col-md-6">
+                                <button type="submit" class="btn btn-primary w-100">Get Directions</button>
+                            </div>
+                            <div class="col-md-6">
+                                <button type="button" id="optimize-route" class="btn btn-success w-100">Optimize Route</button>
+                            </div>
+                        </form>
+                        <div id="directions-panel" class="mt-3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            </div>
+        </section>
+        <section id="testimonials" class="py-5 bg-light">
+            <div class="container">
+                <h2 class="text-center mb-5">What Our Travelers Say</h2>
+                <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="row">
+                                <div class="col-md-4 mb-4">
+                                    <div class="card testimonial-card h-100 shadow-sm">
+                                        <div class="card-body text-center d-flex flex-column justify-content-between">
+                                            <div>
+                                                <img src="/api/placeholder/100/100" alt="Sarah J." class="testimonial-img">
+                                                <h5 class="card-title">Sarah J.</h5>
+                                                <div class="rating mb-2">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                                <p class="card-text">"An unforgettable experience! The guided tours were informative and engaging. I learned so much about Rome's rich history."</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-4">
+                                    <div class="card testimonial-card h-100 shadow-sm">
+                                        <div class="card-body text-center d-flex flex-column justify-content-between">
+                                            <div>
+                                                <img src="/api/placeholder/100/100" alt="Michael R." class="testimonial-img">
+                                                <h5 class="card-title">Michael R.</h5>
+                                                <div class="rating mb-2">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star-half-alt"></i>
+                                                </div>
+                                                <p class="card-text">"The cooking class was a highlight of our trip. We learned so much about Italian cuisine and had a blast making pasta from scratch!"</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-4">
+                                    <div class="card testimonial-card h-100 shadow-sm">
+                                        <div class="card-body text-center d-flex flex-column justify-content-between">
+                                            <div>
+                                                <img src="/api/placeholder/100/100" alt="Emily T." class="testimonial-img">
+                                                <h5 class="card-title">Emily T.</h5>
+                                                <div class="rating mb-2">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                                <p class="card-text">"Rome Explorer made our vacation planning so easy. Everything was perfectly organized, and the local guides were knowledgeable and friendly."</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row">
+                                <div class="col-md-4 mb-4">
+                                    <div class="card testimonial-card h-100 shadow-sm">
+                                        <div class="card-body text-center d-flex flex-column justify-content-between">
+                                            <div>
+                                                <img src="/api/placeholder/100/100" alt="David L." class="testimonial-img">
+                                                <h5 class="card-title">David L.</h5>
+                                                <div class="rating mb-2">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="far fa-star"></i>
+                                                </div>
+                                                <p class="card-text">"The small group tours were perfect. We got personalized attention and made new friends along the way."</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-4">
+                                    <div class="card testimonial-card h-100 shadow-sm">
+                                        <div class="card-body text-center d-flex flex-column justify-content-between">
+                                            <div>
+                                                <img src="/api/placeholder/100/100" alt="Linda K." class="testimonial-img">
+                                                <h5 class="card-title">Linda K.</h5>
+                                                <div class="rating mb-2">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                                <p class="card-text">"The Vatican tour was incredible. Our guide's knowledge was impressive, and we skipped all the long lines!"</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-4">
+                                    <div class="card testimonial-card h-100 shadow-sm">
+                                        <div class="card-body text-center d-flex flex-column justify-content-between">
+                                            <div>
+                                                <img src="/api/placeholder/100/100" alt="Robert M." class="testimonial-img">
+                                                <h5 class="card-title">Robert M.</h5>
+                                                <div class="rating mb-2">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star-half-alt"></i>
+                                                </div>
+                                                <p class="card-text">"The off-the-beaten-path tour showed us a side of Rome we never would have discovered on our own. Truly unique experience!"</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row">
+                                <div class="col-md-4 mb-4">
+                                    <div class="card testimonial-card h-100 shadow-sm">
+                                        <div class="card-body text-center d-flex flex-column justify-content-between">
+                                            <div>
+                                                <img src="/api/placeholder/100/100" alt="Sophie G." class="testimonial-img">
+                                                <h5 class="card-title">Sophie G.</h5>
+                                                <div class="rating mb-2">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                                <p class="card-text">"The food tour was a gastronomic delight! We tasted the best pizza, pasta, and gelato in Rome. A must-do for foodies!"</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-4">
+                                    <div class="card testimonial-card h-100 shadow-sm">
+                                        <div class="card-body text-center d-flex flex-column justify-content-between">
+                                            <div>
+                                                <img src="/api/placeholder/100/100" alt="James H." class="testimonial-img">
+                                                <h5 class="card-title">James H.</h5>
+                                                <div class="rating mb-2">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="far fa-star"></i>
+                                                </div>
+                                                <p class="card-text">"The Colosseum night tour was spectacular. Seeing it lit up and without the daytime crowds was a magical experience."</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-4">
+                                    <div class="card testimonial-card h-100 shadow-sm">
+                                        <div class="card-body text-center d-flex flex-column justify-content-between">
+                                            <div>
+                                                <img src="/api/placeholder/100/100" alt="Maria C." class="testimonial-img">
+                                                <h5 class="card-title">Maria C.</h5>
+                                                <div class="rating mb-2">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                                <p class="card-text">"The day trip to Pompeii was fantastic. Our guide brought the ancient city to life with fascinating stories and facts."</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact" class="bg-dark text-light py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4" data-aos="fade-up">
+                    <h3>Contact Us</h3>
+                    <p>Email:srinathnani09@gmail.com</p>
+                    <p>Phone: +39 06 1234 5678</p>
+                    <p>Address: Via del Corso 1, Rome, Italy</p>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="#" class="text-light me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter for the latest updates and offers.</p>
+                    <form id="newsletter-form">
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="Your email" aria-label="Your email" aria-describedby="button-addon2" required>
+                            <button class="btn btn-primary" type="submit" id="button-addon2">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+<!-- Destination Modals -->
+
+<!-- Colosseum Modal -->
+<div class="modal fade" id="colosseumModal" tabindex="-1" aria-labelledby="colosseumModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="colosseumModalLabel">Colosseum</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div id="colosseumCarousel" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="https://i.postimg.cc/J0LrmtY3/Colosseum1.jpg" class="d-block w-100" alt="Colosseum Exterior">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://i.postimg.cc/jdJmQwcT/Colosseum-Interior.png" class="d-block w-100" alt="Colosseum Interior">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://i.postimg.cc/QNqw6ZG4/Colosseum-Aerial-View.jpg" class="d-block w-100" alt="Colosseum Aerial View">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#colosseumCarousel" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#colosseumCarousel" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h4>About the Colosseum</h4>
+                        <p>The Colosseum, also known as the Flavian Amphitheatre, is an oval amphitheatre in the centre of the city of Rome, Italy. Built of travertine limestone, tuff (volcanic rock), and brick-faced concrete, it was the largest amphitheatre ever built at the time and held 50,000 to 80,000 spectators.</p>
+                        <h5>Highlights:</h5>
+                        <ul>
+                            <li>Iconic symbol of Imperial Rome</li>
+                            <li>Architectural marvel of the ancient world</li>
+                            <li>Venue for gladiatorial contests and public spectacles</li>
+                            <li>Underground chambers where gladiators and animals were kept</li>
+                        </ul>
+                        <h5>Visitor Information:</h5>
+                        <ul>
+                            <li>Opening Hours: 8:30 AM - 7:00 PM (last entry at 6:00 PM)</li>
+                            <li>Address: Piazza del Colosseo, 1, 00184 Roma RM, Italy</li>
+                            <li>Nearest Metro: Colosseo (Line B)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-md-12">
+                        <h4>Book Your Colosseum Tour</h4>
+                        <form id="colosseumBookingForm">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="colosseumDate" class="form-label">Date</label>
+                                    <input type="date" class="form-control" id="colosseumDate" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="colosseumTime" class="form-label">Time</label>
+                                    <select class="form-select" id="colosseumTime" required>
+                                        <option value="">Choose a time...</option>
+                                        <option>9:00 AM</option>
+                                        <option>11:00 AM</option>
+                                        <option>1:00 PM</option>
+                                        <option>3:00 PM</option>
+                                        <option>5:00 PM</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="colosseumAdults" class="form-label">Number of Adults</label>
+                                    <input type="number" class="form-control" id="colosseumAdults" min="1" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="colosseumChildren" class="form-label">Number of Children (under 12)</label>
+                                    <input type="number" class="form-control" id="colosseumChildren" min="0">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Book Now</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Vatican City Modal -->
+<div class="modal fade" id="vaticanModal" tabindex="-1" aria-labelledby="vaticanModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="vaticanModalLabel">Vatican City</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div id="vaticanCarousel" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="https://i.postimg.cc/fbpcLb5V/Vatican-City.jpg" class="d-block w-100" alt="St. Peter's Basilica">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://i.postimg.cc/gJhDfRTq/Sistine-Chapel.png" class="d-block w-100" alt="Sistine Chapel">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://i.postimg.cc/PJ4qx37X/Vatican-Museums.png" class="d-block w-100" alt="Vatican Museums">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#vaticanCarousel" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#vaticanCarousel" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h4>About Vatican City</h4>
+                        <p>Vatican City, a city-state surrounded by Rome, Italy, is the headquarters of the Roman Catholic Church. It's home to the Pope and a trove of iconic art and architecture. Its Vatican Museums house ancient Roman sculptures such as the famed "Laocoön and His Sons" as well as Renaissance frescoes in the Raphael Rooms and the Sistine Chapel, famous for Michelangelo's ceiling.</p>
+                        <h5>Highlights:</h5>
+                        <ul>
+                            <li>St. Peter's Basilica - the world's largest church</li>
+                            <li>Sistine Chapel with Michelangelo's frescoes</li>
+                            <li>Vatican Museums with extensive art collections</li>
+                            <li>St. Peter's Square and its iconic colonnades</li>
+                        </ul>
+                        <h5>Visitor Information:</h5>
+                        <ul>
+                            <li>Opening Hours: 9:00 AM - 6:00 PM (last entry at 4:00 PM)</li>
+                            <li>Address: 00120 Vatican City</li>
+                            <li>Nearest Metro: Ottaviano-S. Pietro (Line A)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-md-12">
+                        <h4>Book Your Vatican City Tour</h4>
+                        <form id="vaticanBookingForm">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="vaticanDate" class="form-label">Date</label>
+                                    <input type="date" class="form-control" id="vaticanDate" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="vaticanTime" class="form-label">Time</label>
+                                    <select class="form-select" id="vaticanTime" required>
+                                        <option value="">Choose a time...</option>
+                                        <option>9:30 AM</option>
+                                        <option>11:30 AM</option>
+                                        <option>2:00 PM</option>
+                                        <option>4:00 PM</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="vaticanAdults" class="form-label">Number of Adults</label>
+                                    <input type="number" class="form-control" id="vaticanAdults" min="1" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="vaticanChildren" class="form-label">Number of Children (under 12)</label>
+                                    <input type="number" class="form-control" id="vaticanChildren" min="0">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Book Now</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Trevi Fountain Modal -->
+<div class="modal fade" id="treviModal" tabindex="-1" aria-labelledby="treviModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="treviModalLabel">Trevi Fountain</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div id="treviCarousel" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="https://i.postimg.cc/nhyt88Fy/Trevi-Fountain.png" class="d-block w-100" alt="Trevi Fountain">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://i.postimg.cc/DZCjTsQS/Trevi-Fountain-at-Night.png" class="d-block w-100" alt="Trevi Fountain at Night">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://i.postimg.cc/brN70pgt/Trevi-Fountain-Statues.png" class="d-block w-100" alt="Trevi Fountain Statues">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#treviCarousel" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#treviCarousel" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h4>About Trevi Fountain</h4>
+                        <p>The Trevi Fountain is a fountain in the Trevi district in Rome, Italy, designed by Italian architect Nicola Salvi and completed by Giuseppe Pannini and several others. Standing 26.3 metres (86 ft) high and 49.15 metres (161.3 ft) wide, it is the largest Baroque fountain in the city and one of the most famous fountains in the world.</p>
+                        <h5>Highlights:</h5>
+                        <ul>
+                            <li>Iconic Baroque architecture</li>
+                            <li>Coin tossing tradition</li>
+                            <li>Beautiful night illumination</li>
+                            <li>Central figure of Oceanus</li>
+                        </ul>
+                        <h5>Visitor Information:</h5>
+                        <ul>
+                            <li>Open 24 hours</li>
+                            <li>Address: Piazza di Trevi, 00187 Roma RM, Italy</li>
+                            <li>Nearest Metro: Barberini (Line A)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-md-12">
+                        <h4>Book Your Trevi Fountain Walking Tour</h4>
+                        <form id="treviBookingForm">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="treviDate" class="form-label">Date</label>
+                                    <input type="date" class="form-control" id="treviDate" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="treviTime" class="form-label">Time</label>
+                                    <select class="form-select" id="treviTime" required><option value="">Choose a time...</option>
+                                        <option>10:00 AM</option>
+                                        <option>2:00 PM</option>
+                                        <option>6:00 PM</option>
+                                        <option>9:00 PM (Night Tour)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="treviAdults" class="form-label">Number of Adults</label>
+                                    <input type="number" class="form-control" id="treviAdults" min="1" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="treviChildren" class="form-label">Number of Children (under 12)</label>
+                                    <input type="number" class="form-control" id="treviChildren" min="0">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Book Now</button>
+                        </form>
+                    </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                
+                <!-- Roman Forum Modal -->
+                <div class="modal fade" id="forumModal" tabindex="-1" aria-labelledby="forumModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="forumModalLabel">Roman Forum</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div id="forumCarousel" class="carousel slide" data-bs-ride="carousel">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active">
+                                            <img src="https://i.postimg.cc/V6NgDvym/Roman-Forum-Overview.png" class="d-block w-100" alt="Roman Forum Overview">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="https://i.postimg.cc/26XwJYmv/Temple-of-Saturn.png" class="d-block w-100" alt="Temple of Saturn">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="https://i.postimg.cc/kG0yJy2g/Arch-of-Titus.png" class="d-block w-100" alt="Arch of Titus">
+                                        </div>
+                                    </div>
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#forumCarousel" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-bs-target="#forumCarousel" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Next</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <h4>About the Roman Forum</h4>
+                                <p>The Roman Forum, also known by its Latin name Forum Romanum, is a rectangular forum surrounded by the ruins of several important ancient government buildings at the center of the city of Rome. Citizens of the ancient city referred to this space, originally a marketplace, as the Forum Magnum, or simply the Forum.</p>
+                                <h5>Highlights:</h5>
+                                <ul>
+                                    <li>Temple of Saturn</li>
+                                    <li>Arch of Titus</li>
+                                    <li>Temple of Vesta</li>
+                                    <li>Basilica Julia</li>
+                                </ul>
+                                <h5>Visitor Information:</h5>
+                                <ul>
+                                    <li>Opening Hours: 8:30 AM - 7:00 PM (last entry 1 hour before closing)</li>
+                                    <li>Address: Via della Salara Vecchia, 5/6, 00186 Roma RM, Italy</li>
+                                    <li>Nearest Metro: Colosseo (Line B)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-md-12">
+                                <h4>Book Your Roman Forum Tour</h4>
+                                <form id="forumBookingForm">
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <label for="forumDate" class="form-label">Date</label>
+                                            <input type="date" class="form-control" id="forumDate" required>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="forumTime" class="form-label">Time</label>
+                                            <select class="form-select" id="forumTime" required>
+                                                <option value="">Choose a time...</option>
+                                                <option>9:00 AM</option>
+                                                <option>11:00 AM</option>
+                                                <option>2:00 PM</option>
+                                                <option>4:00 PM</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <label for="forumAdults" class="form-label">Number of Adults</label>
+                                            <input type="number" class="form-control" id="forumAdults" min="1" required>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="forumChildren" class="form-label">Number of Children (under 12)</label>
+                                            <input type="number" class="form-control" id="forumChildren" min="0">
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Book Now</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                </div>
+                
+                <!-- Pantheon Modal -->
+                <div class="modal fade" id="pantheonModal" tabindex="-1" aria-labelledby="pantheonModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="pantheonModalLabel">Pantheon</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div id="pantheonCarousel" class="carousel slide" data-bs-ride="carousel">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active">
+                                            <img src="https://i.postimg.cc/QMdYn052/Pantheon-Exterior.png" class="d-block w-100" alt="Pantheon Exterior">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="https://i.postimg.cc/7Lttv0nf/Pantheon-Interior.png" class="d-block w-100" alt="Pantheon Interior">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="https://i.postimg.cc/KjB0gVSM/Pantheon-Dome.png" class="d-block w-100" alt="Pantheon Dome">
+                                        </div>
+                                    </div>
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#pantheonCarousel" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-bs-target="#pantheonCarousel" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Next</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <h4>About the Pantheon</h4>
+                                <p>The Pantheon is a former Roman temple and since the year 609 a Catholic church, in Rome, Italy, on the site of an earlier temple commissioned by Marcus Agrippa during the reign of Augustus. It was rebuilt by the emperor Hadrian and probably dedicated c. 126 AD. Its date of construction is uncertain, because Hadrian chose not to inscribe the new temple but rather to retain the inscription of Agrippa's older temple, which had burned down.</p>
+                                <h5>Highlights:</h5>
+                                <ul>
+                                    <li>Massive unreinforced concrete dome</li>
+                                    <li>Oculus (central opening to the sky)</li>
+                                    <li>Ancient Roman architecture</li>
+                                    <li>Tombs of Italian kings and the artist Raphael</li>
+                                </ul>
+                                <h5>Visitor Information:</h5>
+                                <ul>
+                                    <li>Opening Hours: 9:00 AM - 7:00 PM (last entry at 6:30 PM)</li>
+                                    <li>Address: Piazza della Rotonda, 00186 Roma RM, Italy</li>
+                                    <li>Nearest Metro: Barberini (Line A)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-md-12">
+                                <h4>Book Your Pantheon Tour</h4>
+                                <form id="pantheonBookingForm">
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <label for="pantheonDate" class="form-label">Date</label>
+                                            <input type="date" class="form-control" id="pantheonDate" required>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="pantheonTime" class="form-label">Time</label>
+                                            <select class="form-select" id="pantheonTime" required>
+                                                <option value="">Choose a time...</option>
+                                                <option>10:00 AM</option>
+                                                <option>12:00 PM</option>
+                                                <option>2:00 PM</option>
+                                                <option>4:00 PM</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <label for="pantheonAdults" class="form-label">Number of Adults</label>
+                                            <input type="number" class="form-control" id="pantheonAdults" min="1" required>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="pantheonChildren" class="form-label">Number of Children (under 12)</label>
+                                            <input type="number" class="form-control" id="pantheonChildren" min="0">
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Book Now</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- Booking Modal -->
+    <div class="modal fade" id="booking-modal" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="bookingModalLabel">Book Your Activity</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="booking-form">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="date" class="form-label">Date</label>
+                            <input type="date" class="form-control" id="date" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="activity" class="form-label">Activity</label>
+                            <input type="text" class="form-control" id="activity" readonly>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Book Now</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPnLXTOd76DE4Ks3uHbj8AOEvRh30dzlo"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/panolens@0.11.0/build/panolens.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPnLXTOd76DE4Ks3uHbj8AOEvRh30dzlo&callback=initMap&libraries=places" async defer></script>
+    <script src="static/js/rome.js"></script>
+</body>
+</html>
